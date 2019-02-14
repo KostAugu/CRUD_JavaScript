@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+
+  - var n = 1;
+
+  table(class='table table-striped table-hover text-center detailTable')
+    thead(class="thead-dark")
+      tr            
+        th Id
+        td #{product.id}    
+      tr            
+        th Title
+        td #{product.title}
+      tr    
+        th Description
+        td #{product.description}
+      tr    
+        th Price
+        td #{product.price}
+      tr    
+        th Edit / Delete
+        td(class="d-flex justify-content-center border-0") 
+          form(class="flex-shrink-1" method="get" action=product.url+'/edit')  
+            button(type='submit' class='btn btn-warning btn-lg') #[i(class="fas fa-edit")]
+          form(class="deleteRequest flex-shrink-1" method="post" action=product.url+'/delete')    
+            button(type='submit' class='btn btn-danger btn-lg') #[i(class="fas fa-trash-alt")]
+  include includes/modal.pug                

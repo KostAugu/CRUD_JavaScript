@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  
+  - var n = 1;
+
+  table(class='table table-striped table-hover text-center' style='width:100%', border='1')
+    thead(class="thead-dark")
+      tr
+        th Number
+        th Country
+        th City
+        th Street
+        th Latitude
+        th Longitude
+        th Edit / Delete
+    tbody        
+    each location in location_list
+      tr
+        td= n++
+        td #{location.country}
+        td #{location.city}
+        td #{location.street}
+        td #{location.latitude}
+        td #{location.longitude}
+        td(class="d-flex justify-content-center border-0") 
+          a(class="flex-shrink-1" href=location.url)
+            button(type='button' class='btn btn-info btn-lg') Details
+          form(class="flex-shrink-1" method="get" action=location.url+'/edit')  
+            button(type='submit' class='btn btn-warning btn-lg') #[i(class="fas fa-edit")]
+          form(class="deleteRequest flex-shrink-1" method="post" action=location.url+'/delete')    
+            button(type='submit' class='btn btn-danger btn-lg') #[i(class="fas fa-trash-alt")]
+    else
+      tr
+        td(colspan="7") There are no locations.   
+  include includes/modal.pug                         

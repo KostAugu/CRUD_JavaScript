@@ -1,0 +1,29 @@
+{
+  "name": "crudapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-validator": "^5.3.1",
+    "http-errors": "~1.6.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.10",
+    "morgan": "~1.9.0",
+    "node-geocoder": "^3.22.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "^2.5.0",
+    "stylus": "0.54.5",
+    "xregexp": "^4.2.4"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^3.1.1",
+    "nodemon": "^1.18.9"
+  }
+}

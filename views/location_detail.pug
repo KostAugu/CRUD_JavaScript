@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+
+  - var n = 1;
+
+  table(class='table table-striped table-hover text-center detailTable')
+    thead(class="thead-dark")
+        tr            
+            th Id
+            td #{location.id}    
+        tr            
+            th Country
+            td #{location.country}
+        tr    
+            th City
+            td #{location.city}
+        tr    
+            th Street
+            td #{location.street}
+        tr
+            th Latitude
+            td #{location.latitude}
+        tr    
+            th Longitude
+            td #{location.longitude}
+        tr    
+            th Edit / Delete
+            td(class="d-flex justify-content-center border-0") 
+                form(class="flex-shrink-1" method="get" action=location.url+'/edit')  
+                    button(type='submit' class='btn btn-warning btn-lg') #[i(class="fas fa-edit")]
+                form(class="deleteRequest flex-shrink-1" method="post" action=location.url+'/delete')    
+                    button(type='submit' class='btn btn-danger btn-lg') #[i(class="fas fa-trash-alt")]
+  include includes/modal.pug   

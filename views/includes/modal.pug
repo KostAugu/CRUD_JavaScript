@@ -1,0 +1,14 @@
+.modal.fade(class="modal fade" tabindex="-1" id="deleteModal" role="dialog")
+    .modal-dialog
+        .modal-content
+            .modal-header
+                h4.modal-title Data deletion
+                button.close(type="button",data-dismiss="modal")
+                    span.sr-only Close
+            .modal-body
+                form(id="deleteForm" action="" method="POST" enctype="application/x-www-form-urlencoded")
+                    input(type="hidden" name="_method" value="delete")
+                    h5 Do you really want to delete this entry?
+                    div(class="d-flex justify-content-center")
+                        button.btn.btn-primary.btn-lg(type="button",data-dismiss="modal") No
+                        button.btn.btn-warning.btn-lg(id="deleteEntry" type="submit") Yes

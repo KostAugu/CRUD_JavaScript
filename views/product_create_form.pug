@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='/products/create' class="ceForm")
+    div.form-group
+      label(for='title') Title:
+      input#title.form-control(type='text' placeholder='Title' name='title' required='true' value=(undefined===product ? '' : product.title) )
+      label(for='description') Description:
+      input#description.form-control(type='text' placeholder='Description' name='description' required='true' value=(undefined===product ? '' : product.description))
+      label(for='price') Price:
+      input#price.form-control(type='text' placeholder='Price' name='price' required='true' value=(undefined===product ? '' : product.price))
+    button.btn.btn-primary(type='submit') Submit
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1= title
+
+  table(class='table table-striped table-hover text-center detailTable')
+    thead(class="thead-dark")
+        tr            
+            th Id
+            td #{inventory.id}
+        tr            
+            th Title
+            td #{inventory.product.title}
+        tr            
+            th Description
+            td #{inventory.product.description}            
+        tr            
+            th Price
+            td #{inventory.product.price}
+        tr            
+            th Stock
+            td #{inventory.stock}
+        tr            
+            th Country
+            td #{inventory.location.country}
+        tr    
+            th City
+            td #{inventory.location.city}
+        tr    
+            th Street
+            td #{inventory.location.street}
+        tr
+            th Latitude
+            td #{inventory.location.latitude}
+        tr    
+            th Longitude
+            td #{inventory.location.longitude}
+        tr    
+            th Edit / Delete
+            td(class="d-flex justify-content-center border-0") 
+              form(class="flex-shrink-1" method="get" action=inventory.url+'/edit')  
+                button(type='submit' class='btn btn-warning btn-lg') #[i(class="fas fa-edit")]
+              form(class="deleteRequest flex-shrink-1" method="post" action=inventory.url+'/delete')    
+                button(type='submit' class='btn btn-danger btn-lg') #[i(class="fas fa-trash-alt")]
+  include includes/modal.pug   
